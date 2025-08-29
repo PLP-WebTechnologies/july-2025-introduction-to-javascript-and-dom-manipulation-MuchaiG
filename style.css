@@ -1,0 +1,141 @@
+/*
+=====================================================
+GLOBAL STYLES & MOBILE-FIRST BASE
+=====================================================
+*/
+:root {
+    --primary-color: #007bff;
+    --light-bg: #f8f9fa;
+    --dark-text: #212529;
+    --gap: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--dark-text);
+    background-color: var(--light-bg);
+    line-height: 1.5;
+}
+
+.site-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/*
+=====================================================
+NAVIGATION BAR (FLEXBOX)
+A simple horizontal row.
+=====================================================
+*/
+.main-nav {
+    background-color: #314141;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex; /* Turn this into a Flex Container */
+    justify-content: center; /* Center the links horizontally */
+    padding: 0;
+}
+
+.main-nav li a {
+    display: block;
+    padding: 0.8rem 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+/*
+=====================================================
+MAIN CONTENT LAYOUT (CSS GRID) - MOBILE VIEW
+On Mobile, all items stack (single column).
+=====================================================
+*/
+.main-container {
+    padding: var(--gap);
+}
+
+.content-area {
+    /* Set the container to use CSS Grid */
+    display: grid; 
+    /* Mobile: 1 column, all items take full width */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.main-article, .sidebar {
+    padding: 1rem;
+    background-color: rgb(211, 167, 167);
+    border: 1px solid #ddd;
+}
+
+/*
+=====================================================
+INNER CARDS (FLEXBOX)
+Simple wrapping behavior for the cards.
+=====================================================
+*/
+.card-section {
+    display: flex; /* Turn this into a Flex Container */
+    flex-wrap: wrap; /* Allow items to move to the next line */
+    gap: 1rem; 
+    margin-top: 1rem;
+}
+
+.card {
+    background-color: #5d7557;
+    padding: 1rem;
+    text-align: center;
+    /* On mobile, cards take up roughly half the width */
+    width: calc(50% - 0.5rem); 
+}
+/* Ensure the third card drops down cleanly on mobile */
+.card:last-child {
+    width: 100%;
+}
+
+/*
+=====================================================
+MEDIA QUERY - DESKTOP VIEW
+(Min-width: 768px is a common simple desktop/tablet breakpoint)
+=====================================================
+*/
+@media (min-width: 768px) {
+    
+    /* 1. CSS GRID ADJUSTMENT: Main Content Area */
+    .content-area {
+        /* Desktop: Create two columns: 3 parts for article, 1 part for sidebar */
+        grid-template-columns: 3fr 1fr;
+    }
+
+    /* 2. FLEXBOX ADJUSTMENT: Cards */
+    .card {
+        /* Desktop: Cards take up roughly one-third of the width */
+        width: calc(33.333% - 0.666rem);
+    }
+    /* Reset the last-child rule from mobile */
+    .card:last-child {
+        width: auto;
+    }
+
+    .main-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}
+
+.site-footer {
+    background-color: var(--dark-text);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}

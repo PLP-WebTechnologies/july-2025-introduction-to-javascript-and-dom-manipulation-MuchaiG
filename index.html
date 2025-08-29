@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Responsive Layout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>My lovely CSS Page</h1>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <main class="content-area">
+            <section class="main-article">
+                <h2>Main Content Section (Using Grid)</h2>
+                <p>This is the main content area. On small screens (Mobile), this area takes up the full width. On large screens (Desktop), it shares space with the Sidebar using **CSS Grid**.</p>
+                
+                <div class="card-section">
+                    <h3>Featured Cards (Using Flexbox)</h3>
+                    <div class="card card-1">Card 1</div>
+                    <div class="card card-2">Card 2</div>
+                    <div class="card card-3">Card 3</div>
+                </div>
+                
+                <p>The **Featured Cards** above use **Flexbox** to line up horizontally and wrap onto a new line when the screen is too narrow.</p>
+            </section>
+        
+            <aside class="sidebar">
+                <h3>Sidebar (Using Grid)</h3>
+                <p>This section is simple secondary content. It stacks below the main content on Mobile and moves beside it on Desktop.</p>
+                <ul>
+                    <li>Lesson 1: Flexbox</li>
+                    <li>Lesson 2: CSS Grid</li>
+                    <li>Lesson 3: Media Queries</li>
+                </ul>
+            </aside>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Beginner Web Layout</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
